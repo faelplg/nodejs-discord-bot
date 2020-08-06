@@ -35,9 +35,22 @@ client.on('message', function (message) {
       const numArgs = args.map((x) => parseFloat(x)); // Create a list of numbers.
       const sum = numArgs.reduce((counter, x) => (counter += x));
       message.reply(`The sum of all the arguments you provided is ${sum}!`);
+    } else if (command === 'shabley') {
+      message.reply(`SHAAAAAAAAAAA-BLEYYYYYYYYYYYY`);
+    } else if (command === 'birubinha') {
+      let msg = 'Hahahahahaha!';
+      const targetUser = args.shift();
+      if (/<@![0-9]+>/.test(targetUser)) {
+        msg = `${msg} Muuuito birubinha esse ${targetUser}!`;
+      } else {
+        msg = `${msg} Birubinha demaisss! (‾◡◝)`;
+      }
+      message.reply(msg);
     }
   } else {
-    console.log(`A MESSAGE was sent: ${message.content} (from ${message.author.username})`);
+    console.log(
+      `A MESSAGE was sent: ${message.content} (from ${message.author.username} on ${message.channel.guild.channel})`,
+    );
   }
 });
 
